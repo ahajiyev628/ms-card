@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - includeAll:
+      path: liquibase/1.0 # read all the change logs from the specified folder
+                          # if needed, we can add another path below. For example, liquibase/1.1
