@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create cards table
+      author: Allahverdi Hajiyev
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pan
+                  type: varchar(16)
+                  remarks: pan of the cards
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expire_date
+                  type: date
+                  remarks: expire date of the card
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cvv
+                  type: varchar(3)
+                  remarks: cvv of the card
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cardholder
+                  type: varchar(256)
+                  remarks: cardholder name
+              - column:
+                  name: status
+                  type: varchar(16)
+                  remarks: status of the card
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: Last update of record
+
+            remarks: Table to store information about cards
