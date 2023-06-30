@@ -1,7 +1,10 @@
 package org.example.spring.dao.repository;
 
 import org.example.spring.dao.entity.CardEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CardRepository extends CrudRepository<CardEntity, Long> {
+@Repository // optional annotation because CrudRepository uses @NoRepositoryBean
+public interface CardRepository extends JpaRepository<CardEntity, Long> {
 }

@@ -32,7 +32,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: cardholder
+                  name: card_holder
                   type: varchar(256)
                   remarks: cardholder name
               - column:
