@@ -5,6 +5,11 @@ import org.example.spring.model.enums.CardStatus;
 import org.example.spring.model.request.SaveCardRequest;
 import org.example.spring.model.request.UpdateCardRequest;
 import org.example.spring.model.response.CardResponse;
+import org.example.spring.model.response.PageableCardResponse;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CardMapper {
     public static CardResponse buildCardResponse(CardEntity card) {
@@ -32,5 +37,19 @@ public class CardMapper {
         card.setPan(request.getPan());
         card.setCvv(request.getCvv());
         card.setExpireDate(request.getExpireDate());
+    }
+
+    public static PageableCardResponse mapToPageableResponse(Page<CardEntity> cardsPage) {
+        List<CardResponse> cardResponses = cardsPage.getContent()
+                .stream()
+                .map(CardMapper::buildCardResponse)
+                .collect(Collectors.toList());
+
+        return PageableCardResponse.builder()
+                .cards(cardResponses)
+                .hasNextPage(cardsPage.hasNext())
+                .lastPageNumber(cardsPage.getTotalPages())
+                .totalElements(cardsPage.getTotalElements())
+                .build();
     }
 }

@@ -1,12 +1,15 @@
 package org.example.spring.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.spring.model.criteria.CardCriteria;
+import org.example.spring.model.criteria.PageCriteria;
 import org.example.spring.model.request.SaveCardRequest;
 import org.example.spring.model.request.UpdateCardRequest;
 import org.example.spring.model.response.CardResponse;
 import org.example.spring.service.CardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.example.spring.model.response.PageableCardResponse;
 
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class CardController {
         return cardService.getCardById(id);
     }
 
-    @GetMapping
+    @GetMapping("all")
     public List<CardResponse> getAllCards() {
         return cardService.getAllCards();
     }
@@ -43,5 +46,14 @@ public class CardController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCard(@PathVariable Long id) {
         cardService.deleteCard(id);
+    }
+
+    @GetMapping
+    public PageableCardResponse getCards(PageCriteria pageCriteria, CardCriteria cardCriteria) {
+        /*
+        No need to write @RequestParam annotation before PageCriteria or CardCriteria.
+        They will work the same as if @RequestParam was used, by default.
+         */
+        return cardService.getCards(pageCriteria, cardCriteria);
     }
 }
