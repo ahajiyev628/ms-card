@@ -57,7 +57,7 @@ public class CardService {
         cardRepository.save(card);  // update the card status in table
         //  cardRepository.delete(card);
         /*  it`s not recommended to delete a record from db,
-            we can change the status  */
+            we can change the status instead */
     }
 
     private CardEntity fetchCardIfExist(Long id) {
@@ -71,10 +71,10 @@ public class CardService {
     }
 
     /*
-    The working principle of the below method : Let`s say we have 1 million cards in the Cards table in DB
+    The working principle of the below method : Let`s say we have 1 million Cards in the Cards table in DB
     In the first step, the Cards table is filtered based on the cardCriteria
     then, the filtered cards are ordered based on the field in the Sort.by() parameters of PageRequest.
-    finally, the filtered and ordered cards ar divided into pages, and each pages contains specified amount of cards in count parameter
+    finally, the filtered and ordered cards are divided into pages, and each pages contains specified amount of cards in count parameter
      */
     public PageableCardResponse getCards(PageCriteria pageCriteria, CardCriteria cardCriteria) {
         var cardsPage = cardRepository.findAll(

@@ -13,7 +13,7 @@ import org.example.spring.model.response.PageableCardResponse;
 
 import java.util.List;
 
-@RestController
+@RestController // it is the combination of @Controller and @ResponseBody, enables to map the data into json format just with one annotation to communicate with frontend.
 @RequestMapping("v1/cards")
 @RequiredArgsConstructor
 public class CardController {
