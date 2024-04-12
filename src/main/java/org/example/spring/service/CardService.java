@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 import static org.example.spring.mapper.CardMapper.*;
 
-@Service
+@Service(value = "CardService")
 @Slf4j
 @RequiredArgsConstructor
 public class CardService {
