@@ -1,6 +1,7 @@
 package org.example.spring.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.spring.model.criteria.CardCriteria;
 import org.example.spring.model.criteria.PageCriteria;
 import org.example.spring.model.request.SaveCardRequest;
@@ -13,16 +14,20 @@ import org.example.spring.model.response.PageableCardResponse;
 
 import java.util.List;
 
+@Slf4j  // Lombok`s annotation that automatically generates a logger object for the annotated class, simplifying logging statements without the need for manual logger instantiation.
 @RestController // it is the combination of @Controller and @ResponseBody, enables to map the data into json format just with one annotation to communicate with frontend.
 @RequestMapping("v1/cards") // instead of writing the base path (domain) in every HTTP methods, it can be specified just once with RequestMapping over the class to avoid repetition.
-@RequiredArgsConstructor // Lombok annotation that generates a constructor for a class with required final fields as parameters, reducing boilerplate code.
+@RequiredArgsConstructor // Lombok`s annotation that generates a constructor for a class with required final fields as parameters, reducing boilerplate code.
 public class CardController {
     private final CardService cardService;
 
     @GetMapping("/{id}")
     public CardResponse getCardById(@PathVariable Long id) {
         // PathVariable annotation extracts values from the URL path and maps them to method parameters in a controller, allowing dynamic handling of variable parts in URLs.
-        return cardService.getCardById(id);
+        log.info("ActionLog.getCardById.start id: {}", id); // Different description for logs can be applied to differentiate them from service logs.
+        var card = cardService.getCardById(id);
+        log.info("ActionLog.getCardById.end id: {}", id);
+        return card;
     }
 
     @GetMapping("all")
