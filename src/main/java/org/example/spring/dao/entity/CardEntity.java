@@ -41,8 +41,8 @@ public class CardEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    /* equals and hashcode methods were overridden manually (without lombok @Data annotations)
-     * because id is unique and it can be used for comparison of the entity classes
+    /* equals and hashcode methods were overridden manually (without lombok`s @Data annotations)
+     * because id is unique, and it can be used for comparison of the entity classes
      * there is no need to check for other fields which will lead to unnecessary performance issues, otherwise */
     @Override
     public boolean equals(Object o) {
