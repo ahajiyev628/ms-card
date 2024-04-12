@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController // it is the combination of @Controller and @ResponseBody, enables to map the data into json format just with one annotation to communicate with frontend.
 @RequestMapping("v1/cards") // instead of writing the base path (domain) in every HTTP methods, it can be specified just once with RequestMapping over the class to avoid repetition.
-@RequiredArgsConstructor
+@RequiredArgsConstructor // Lombok annotation that generates a constructor for a class with required final fields as parameters, reducing boilerplate code.
 public class CardController {
     private final CardService cardService;
 
