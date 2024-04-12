@@ -1,0 +1,9 @@
+ORM is used to map the objects to database table
+Object Card(card_number, cvv) -> cards table
+
+The only drawback of ORM over Native sql is latency because the java code is converted to sql by ORM.
+
+ORM (1. Jav code, 2. sql) (Hibernate) / Native SQL (1. direct sql)
+JPA - Specification
+
+
