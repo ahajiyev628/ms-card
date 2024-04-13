@@ -1,3 +1,10 @@
+server:
+  port: 8989
+
+client:
+  urls:
+    ms-users: http://localhost:8080
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver

@@ -37,6 +37,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.0")
+
 }
 
 tasks.test {

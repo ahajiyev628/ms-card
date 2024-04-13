@@ -41,14 +41,14 @@ public class CardService {
     }
 
     public void saveCard(SaveCardRequest request) {
-        cardRepository.save(buildCardEntity(request));
+        cardRepository.save(buildCardEntity(request)); // save method will add a new record to the table because there is no any id given in the query
     }
 
     public void updateCard(Long id,
                            UpdateCardRequest request) {
         var card = fetchCardIfExist(id);
         updateCardEntity(card, request);
-        cardRepository.save(card);  // will update the card info for the specified id (will not add a new record)
+        cardRepository.save(card);  // will update the card info for the specified id (will not add a new record) because id is given
     }
 
     public void deleteCard(Long id) {
