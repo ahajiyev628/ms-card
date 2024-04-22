@@ -6,26 +6,26 @@ The only drawback of ORM over Native sql is latency because the java code is con
 ORM (1. Jav code, 2. sql) (Hibernate) / Native SQL (1. direct sql)
 JPA - Specification
 
-> @SneakyThrows annotation.
+>>> @SneakyThrows annotation.
 
-> What is DTO pattern ?
+>>> What is DTO pattern ?
 
-> What is the difference between orElse(null) and orElseGet(null) ?
+>>> What is the difference between orElse(null) and orElseGet(null) ?
 read also orElseThrow().
 
-> What are the strategies of @GeneratedValue annotation ?
+>>> What are the strategies of @GeneratedValue annotation ?
 
-> What is the characteristics of Entity class (in which cases @Entity annotation can be used) ?
+>>> What is the characteristics of Entity class (in which cases @Entity annotation can be used) ?
 
-> Two tables are created by Liquibase - databasechangelog and databasechangeloglock
+>>> Two tables are created by Liquibase - databasechangelog and databasechangeloglock
 databasechangelog stores the information when the query executed. It has a column md5sum which generates a unique id.
 when something is changed in changelog files, it will throw error because md5sum ids will not match.
 
-> Three interfaces for Repository.
+>>> Three interfaces for Repository.
 
-> @Repository annotation can handle SQL Exception
+>>> @Repository annotation can handle SQL Exception
 
-> Communication between microservices - REST, Queue (MessageBrocker).
+>>> Communication between microservices - REST, Queue (MessageBrocker).
 Feign, RestTemplate, WebClient, HTTPClient
 
 
