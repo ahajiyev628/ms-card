@@ -48,16 +48,14 @@ public class CardService {
                            UpdateCardRequest request) {
         var card = fetchCardIfExist(id);
         updateCardEntity(card, request);
-        cardRepository.save(card);  // will update the card info for the specified id (will not add a new record) because id is given
+        cardRepository.save(card);  // will update the card info for the specified id (will not add a new record because id is given)
     }
 
     public void deleteCard(Long id) {
         var card = fetchCardIfExist(id);
         card.setStatus(CardStatus.BLOCKED);
-        cardRepository.save(card);  // update the card status in table
+        cardRepository.save(card);  // update the card status in the table instead of deleting the record
         //  cardRepository.delete(card);
-        /*  it`s not recommended to delete a record from db,
-            we can change the status instead */
     }
 
     private CardEntity fetchCardIfExist(Long id) {
@@ -65,7 +63,7 @@ public class CardService {
                 .orElseThrow(
                 () -> {
                     log.error("ActionLog.getCard.error id: {}", id);
-                    throw new RuntimeException("CARD_NOT_FOUND");
+                    return new RuntimeException("CARD_NOT_FOUND");
                 }
         );
     }

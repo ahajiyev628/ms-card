@@ -33,7 +33,7 @@ public class CardMapper {
     }
 
     public static void updateCardEntity(CardEntity card,
-                                              UpdateCardRequest request) {
+                                        UpdateCardRequest request) {
         card.setPan(request.getPan());
         card.setCvv(request.getCvv());
         card.setExpireDate(request.getExpireDate());
