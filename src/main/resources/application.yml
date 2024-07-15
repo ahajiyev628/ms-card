@@ -9,13 +9,13 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/springdata
-    username: ahajiyev
-    password: gltsry1905
+    username: postgres
+    password: 1111
   jpa:
     properties:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
-    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml

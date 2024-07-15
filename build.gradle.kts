@@ -10,36 +10,29 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    implementation("org.springframework.boot:spring-boot-starter-web:3.1.1")
+    // Spring Boot dependencies
+    implementation("org.springframework.boot:spring-boot-starter-web:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-test:3.2.0")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.1")
+    // PostgreSQL JDBC driver
+    implementation("org.postgresql:postgresql:42.7.3")
 
-    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
-    implementation("org.springframework.data:spring-data-jpa:3.1.1")
+    // Liquibase
+    implementation("org.liquibase:liquibase-core:4.28.0")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.1.1")
-
-    // https://mvnrepository.com/artifact/org.postgresql/postgresql
-    implementation("org.postgresql:postgresql:42.6.0")
-
-    // https://mvnrepository.com/artifact/org.liquibase/liquibase-core
-    implementation("org.liquibase:liquibase-core:4.23.0")
-
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    // Lombok
     compileOnly("org.projectlombok:lombok:1.18.28")
     annotationProcessor("org.projectlombok:lombok:1.18.28")
 
+    // Spring Cloud OpenFeign
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.0")
 
+    // Hibernate core dependency
+    implementation("org.hibernate.orm:hibernate-core:6.5.2.Final")
 }
 
 tasks.test {
