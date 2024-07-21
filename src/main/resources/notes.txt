@@ -10,6 +10,10 @@ Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
 3. Bean Scopes: Singleton (default), prototype, request, session, globalsession, websocket.
 
 
+4. @SpringBootApplication annotation.
+
+
+
 
 ORM is used to map the objects to database table
 Object Card(card_number, cvv) -> cards table
