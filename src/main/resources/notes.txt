@@ -1,3 +1,16 @@
+1. Dependency injection etmek ucun class Bean olmalidi.
+Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
+
+2. DI novleri: 3 usul var.
+
+@Autowired DI (Field injection) is not recommended, because:
+    a. we cannot make injected class private which makes it mutable and can be changed easily.
+    b. filed injection raise the full application while applying the unit testing.
+
+3. Bean Scopes: Singleton (default), prototype, request, session, globalsession, websocket.
+
+
+
 ORM is used to map the objects to database table
 Object Card(card_number, cvv) -> cards table
 
