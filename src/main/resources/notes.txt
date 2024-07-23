@@ -13,6 +13,18 @@ Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
 4. @SpringBootApplication annotation.
 
 
+5. HTTP methods: GET, PUT, POST, UPDATE, DELETE
+
+6. Request atmaq ucun:
+    path variable
+    request param (query param)
+    request body
+
+7. Logging
+loggingde sensitive data ola bilmez
+
+
+
 
 
 ORM is used to map the objects to database table

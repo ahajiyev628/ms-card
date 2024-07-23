@@ -29,7 +29,9 @@ public class CardService {
     private final CardRepository cardRepository;
 
     public CardResponse getCardById(Long id) {
+        log.info("ActionLog.getCardById.start id: {}", id);
         var card = fetchCardIfExist(id);
+        log.info("ActionLog.getCardById.end id: {}", id);
         return buildCardResponse(card);
     }
 
