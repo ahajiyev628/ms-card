@@ -1,26 +1,59 @@
-1. Dependency injection etmek ucun class Bean olmalidi.
-Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
+1. Bean - a. A bean is a specific type of object that is managed by the Spring framework.
+             Beans are created, configured, and managed by the Spring IoC (Inversion of Control) container.
+             Beans in Spring have additional metadata, such as lifecycle management and scope, which are not typically associated with regular objects.
+          b. For a class to participate in Spring's dependency injection mechanism, it must be defined as a bean.
 
-2. DI novleri: 3 usul var.
+2. Dependency Injection - allows for loose coupling between components by injecting dependencies rather than creating them directly.
+   Types of Dependency Injection:
+        a. Constructor Injection - involves passing dependencies through a class constructor.
+                                   This ensures that the dependency is provided at the time of object creation,
+                                   making the object immutable and easier to test.
+        b. Setter Injection      - uses setter methods to inject dependencies.
+                                   This provides the flexibility to inject dependencies after the object is created.
+        c. Field Injection (@Autowired) - directly injects dependencies into the class fields.
+                                          it’s generally discouraged because :
+                                                a. Testing Challenges: Field injection makes it harder to write unit tests.
+                                                                       Since the dependencies are injected directly into private fields,
+                                                                       it's not straightforward to create mocks or stubs for these dependencies in tests.
+                                                                       Full application will be raised while applying the testing.
+                                                b. Lack of Immutability: Field injection doesn't allow you to make dependencies final,
+                                                                         which means the class cannot enforce immutability and can be modified outside easily.
 
-@Autowired DI (Field injection) is not recommended, because:
-    a. we cannot make injected class private which makes it mutable and can be changed easily.
-    b. filed injection raise the full application while applying the unit testing.
+4. Bean Scopes - define the lifecycle and visibility of a bean within the context of the Spring container. (how and when the bean instances are created and shared)
+   Types of Bean Scopes:
+        a. Singleton (default)  - a single instance of the bean is created and shared across the entire Spring container.
+                                  it should be used when you need to maintain a shared state or a shared resource, such as a connection pool or a service.
+        b. Prototype   - a new instance of the bean is created every time it is requested from the container.
+                         it should be used when you need a new instance for each use, such as for non-thread-safe objects or objects with unique state per usage.
+        c. Request     - a new instance of the bean is created for each HTTP request.
+                         Useful for web applications where a bean is needed for each HTTP request, such as request-scoped services or controllers.
+        d. Session     - a new instance of the bean is created for each HTTP session.
+                         it should be used when you need to maintain a bean instance across multiple HTTP requests within the same session, such as user-specific data or preferences.
+        e. Application - a single instance of the bean is created for the lifecycle of a ServletContext.
+                         it should be used when you need a singleton bean that is scoped to the lifecycle of a web application, such as shared resources across the entire application.
+        f. WebSocket   - a new instance of the bean is created for the lifecycle of a WebSocket session.
+                         Useful for WebSocket applications where you need a bean instance per WebSocket session.
 
-3. Bean Scopes: Singleton (default), prototype, request, session, globalsession, websocket.
+5. @SpringBootApplication - serves as a convenience annotation to combine several other annotations into one:
+    a. @SpringBootConfiguration: A specialized @Configuration for Spring Boot applications, marking the class as a source of bean definitions.
+    b. @EnableAutoConfiguration: Automatically configures the Spring application context based on the dependencies on the classpath.
+    c. @ComponentScan:           Scans the specified package(s) for Spring components and registers them in the application context.
 
-4. @SpringBootApplication annotation.
+6. HTTP methods:
+    Idempotent Methods: GET, PUT, DELETE
+    Non-Idempotent Methods: POST, (sometimes PATCH)
 
-5. HTTP methods: GET, PUT, POST, UPDATE, DELETE
+    Idempotence - refers to the property of an operation where performing it multiple times has the same effect as performing it once
 
-6. Request atmaq ucun:
-    path variable
-    request param (query param)
-    request body
+7. @RequestBody  - is used to bind the HTTP request body to a method parameter in a controller.
+                   It is typically used in POST, PUT, and PATCH requests to transfer the request payload to the backend.
+   @RequestParam - is used to bind a request parameter (query parameter) to a method parameter in a controller o pass simple data types (e.g., strings, numbers) as part of the URL query string.
+                   It can be used with any HTTP method.
+   @PathVariable - is used to bind a URI template variable to a method parameter in a controller.
+                   It is typically used in RESTful services to capture parts of the URL when you want to extract a value from the URI path and bind it to a method parameter.
 
-7. Logging
-loggingde sensitive data ola bilmez.
-Log levels oxumaq.
+8. Logging - Logs should not store any sensitive data.
+
 
 
 

@@ -1,7 +1,7 @@
 package org.example.spring.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j; // Simple Logging Facade for Java
 import org.example.spring.dao.entity.CardEntity;
 import org.example.spring.dao.repository.CardRepository;
 import org.example.spring.mapper.CardMapper;
