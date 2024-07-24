@@ -9,9 +9,7 @@ Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
 
 3. Bean Scopes: Singleton (default), prototype, request, session, globalsession, websocket.
 
-
 4. @SpringBootApplication annotation.
-
 
 5. HTTP methods: GET, PUT, POST, UPDATE, DELETE
 
@@ -21,7 +19,8 @@ Standard object ile Bean ferqi odur ki Bean Spring terefinden idare olunur.
     request body
 
 7. Logging
-loggingde sensitive data ola bilmez
+loggingde sensitive data ola bilmez.
+Log levels oxumaq.
 
 
 
