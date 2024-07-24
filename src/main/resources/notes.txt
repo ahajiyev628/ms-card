@@ -54,8 +54,9 @@
 
 8. Logging - Logs should not store any sensitive data.
 
-
-
+9. Lombok - a popular Java library that aims to reduce boilerplate code.
+   @SneakyThrows - can be applied to methods or constructors.
+                   When the method throws a checked exception, Lombok will wrap it in a runtime exception and then sneak it through, effectively bypassing Java's checked exception mechanism.
 
 
 
@@ -66,8 +67,6 @@ The only drawback of ORM over Native sql is latency because the java code is con
 
 ORM (1. Jav code, 2. sql) (Hibernate) / Native SQL (1. direct sql)
 JPA - Specification
-
->>> @SneakyThrows annotation.
 
 >>> What is DTO pattern ?
 
