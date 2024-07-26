@@ -3,6 +3,8 @@
              Beans in Spring have additional metadata, such as lifecycle management and scope, which are not typically associated with regular objects.
           b. For a class to participate in Spring's dependency injection mechanism, it must be defined as a bean.
 
+How to create Bean
+
 2. Dependency Injection - allows for loose coupling between components by injecting dependencies rather than creating them directly.
    Types of Dependency Injection:
         a. Constructor Injection - involves passing dependencies through a class constructor.
@@ -75,6 +77,8 @@ read also orElseThrow().
 
 >>> What are the strategies of @GeneratedValue annotation ?
 
+>> Repository interface types
+
 >>> What is the characteristics of Entity class (in which cases @Entity annotation can be used) ?
 
 >>> Two tables are created by Liquibase - databasechangelog and databasechangeloglock
@@ -87,6 +91,8 @@ when something is changed in changelog files, it will throw error because md5sum
 
 >>> Communication between microservices - REST, Queue (MessageBrocker).
 Feign, RestTemplate, WebClient, HTTPClient
+
+>> Spring Get queryni bir nece defe atdiqda daha tez response verir - Caching
 
 
 
