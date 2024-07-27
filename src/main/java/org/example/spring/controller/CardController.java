@@ -54,9 +54,9 @@ public class CardController {
         cardService.deleteCard(id);
     }
 
-    @GetMapping
+    @GetMapping     // localhost:8989/v1/cards?page=0&count=3&cardHolder=Hajiyevvv
     public PageableCardResponse getCards(PageCriteria pageCriteria,
-                                         CardCriteria cardCriteria //@RequestParam(required = false) Integer ageFrom .....etc
+                                         CardCriteria cardCriteria //@RequestParam(required = false) String cardHolder .....etc
     ) {
         /*
         No need to write @RequestParam annotation before PageCriteria or CardCriteria.

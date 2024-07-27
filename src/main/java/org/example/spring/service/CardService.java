@@ -80,11 +80,12 @@ public class CardService {
     finally, the filtered and ordered cards are divided into pages, and each pages contains specified amount of cards in count parameter
      */
     public PageableCardResponse getCards(PageCriteria pageCriteria, CardCriteria cardCriteria) {
-        var sortBy = cardCriteria.getCardSortFields().getFieldName();
-        var sortDirection = cardCriteria.getCardSortDirection() == CardSortDirection.ASC ? CardSortDirection.ASC : CardSortDirection.DESC;
+        //var sortBy = cardCriteria.getCardSortFields().getFieldName();
+        //var sortDirection = cardCriteria.getCardSortDirection() == CardSortDirection.ASC ? CardSortDirection.ASC : CardSortDirection.DESC;
         var cardsPage = cardRepository.findAll(
                 new CardSpecification(cardCriteria),
-                PageRequest.of(pageCriteria.getPage(), pageCriteria.getCount(), Sort.by(String.valueOf(sortDirection), sortBy)) // PageRequest class is used to build the pagination
+                PageRequest.of(pageCriteria.getPage(), pageCriteria.getCount()//, Sort.by(String.valueOf(sortDirection), sortBy)
+                ) // PageRequest class is used to build the pagination
                 // there is one more default parameter (Sort.by()) which is used for sorting in the page based on the specific field. Default is random :)
         );
         return mapToPageableResponse(cardsPage);
