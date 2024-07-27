@@ -27,6 +27,7 @@ import static org.example.spring.mapper.CardMapper.*;
 @RequiredArgsConstructor
 public class CardService {
     private final CardRepository cardRepository;
+    private final AsyncCardService asyncCardService;
 
     public CardResponse getCardById(Long id) {
         log.info("ActionLog.getCardById.start id: {}", id);
@@ -43,7 +44,8 @@ public class CardService {
     }
 
     public void saveCard(SaveCardRequest request) {
-        cardRepository.save(buildCardEntity(request)); // save method will add a new record to the table because there is no any id given in the query
+        // here any exception cases can be handled, that`s why we do not make this method async and instead, create a new class which contains async methods
+        asyncCardService.saveCard(request);
     }
 
     public void updateCard(Long id,
