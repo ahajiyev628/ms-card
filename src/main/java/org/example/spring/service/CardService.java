@@ -7,6 +7,7 @@ import org.example.spring.dao.repository.CardRepository;
 import org.example.spring.mapper.CardMapper;
 import org.example.spring.model.criteria.CardCriteria;
 import org.example.spring.model.criteria.PageCriteria;
+import org.example.spring.model.enums.CardSortDirection;
 import org.example.spring.model.enums.CardStatus;
 import org.example.spring.model.request.SaveCardRequest;
 import org.example.spring.model.request.UpdateCardRequest;
@@ -79,10 +80,12 @@ public class CardService {
     finally, the filtered and ordered cards are divided into pages, and each pages contains specified amount of cards in count parameter
      */
     public PageableCardResponse getCards(PageCriteria pageCriteria, CardCriteria cardCriteria) {
+        var sortBy = cardCriteria.getCardSortFields().getFieldName();
+        var sortDirection = cardCriteria.getCardSortDirection() == CardSortDirection.ASC ? CardSortDirection.ASC : CardSortDirection.DESC;
         var cardsPage = cardRepository.findAll(
                 new CardSpecification(cardCriteria),
-                PageRequest.of(pageCriteria.getPage(), pageCriteria.getCount(), Sort.by("id").descending()) // PageRequest class is used to build the pagination
-                // there is one more default parameter (Sort.by()) which is used for sorting in the page based on the specific field
+                PageRequest.of(pageCriteria.getPage(), pageCriteria.getCount(), Sort.by(String.valueOf(sortDirection), sortBy)) // PageRequest class is used to build the pagination
+                // there is one more default parameter (Sort.by()) which is used for sorting in the page based on the specific field. Default is random :)
         );
         return mapToPageableResponse(cardsPage);
     }

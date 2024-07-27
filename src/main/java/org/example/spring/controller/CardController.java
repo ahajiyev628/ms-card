@@ -55,7 +55,9 @@ public class CardController {
     }
 
     @GetMapping
-    public PageableCardResponse getCards(PageCriteria pageCriteria, CardCriteria cardCriteria) {
+    public PageableCardResponse getCards(PageCriteria pageCriteria,
+                                         CardCriteria cardCriteria //@RequestParam(required = false) Integer ageFrom .....etc
+    ) {
         /*
         No need to write @RequestParam annotation before PageCriteria or CardCriteria.
         They will work the same as if @RequestParam was used, by default.
