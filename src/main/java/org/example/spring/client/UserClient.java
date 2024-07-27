@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 //@Profile(value = "default")
 @FeignClient(name = "ms-users",
-             url = "${client.urls.ms-users}")
+             url = "${client.urls.ms-users"  // takes from yml file
+          // url = "${client.urls.ms-users}"
+            )
 public interface UserClient {
     @PostMapping(path = "/v1/users")
     void saveUser(@RequestBody UserRequest user);

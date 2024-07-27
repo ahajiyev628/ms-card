@@ -94,5 +94,9 @@ Feign, RestTemplate, WebClient, HTTPClient
 
 >> Spring Get queryni bir nece defe atdiqda daha tez response verir - Caching
 
+>> Microservisler arasi elaqe - Rest, Queue (message brocker), Websocket.
+
+Rest: Feign, RestTemplate
+
 
 

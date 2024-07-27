@@ -1,2 +1,6 @@
 server:
   port: 8181
+# if we want to build application in development environment, we should set active profile to 'dev' (application-dev.yml)
+# from 'Edit Configuration' section. The default application is built based on application.yml file.
+# if nothing additional was written in application-dev.yml but set active profile to 'dev',
+# Spring will take the configs in application.yml as base.
