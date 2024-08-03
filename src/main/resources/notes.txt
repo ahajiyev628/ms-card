@@ -85,7 +85,8 @@ read also orElseThrow().
 databasechangelog stores the information when the query executed. It has a column md5sum which generates a unique id.
 when something is changed in changelog files, it will throw error because md5sum ids will not match.
 
->>> Three interfaces for Repository.
+
+>>> Three interfaces for Repository...
 
 >>> @Repository annotation can handle SQL Exception
 
@@ -97,6 +98,10 @@ Feign, RestTemplate, WebClient, HTTPClient
 >> Microservisler arasi elaqe - Rest, Queue (message brocker), Websocket.
 
 Rest: Feign, RestTemplate
+
+>> Hibernate lifecycle
+
+>> Isolation level
 
 
 
