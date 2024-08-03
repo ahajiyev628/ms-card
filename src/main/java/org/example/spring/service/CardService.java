@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j; // Simple Logging Facade for Java
 import org.example.spring.dao.entity.CardEntity;
 import org.example.spring.dao.repository.CardRepository;
+import org.example.spring.exception.NotFoundException;
 import org.example.spring.mapper.CardMapper;
 import org.example.spring.model.criteria.CardCriteria;
 import org.example.spring.model.criteria.PageCriteria;
@@ -68,7 +69,7 @@ public class CardService {
                 .orElseThrow(
                 () -> {
                     log.error("ActionLog.getCard.error id: {}", id);
-                    return new RuntimeException("CARD_NOT_FOUND");
+                    return new NotFoundException("CARD_NOT_FOUND");
                 }
         );
     }
