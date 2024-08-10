@@ -99,9 +99,23 @@ Feign, RestTemplate, WebClient, HTTPClient
 
 Rest: Feign, RestTemplate
 
->> Hibernate lifecycle
+>> Hibernate entity lifecycle
 
 >> Isolation level
 
 
+>> Relations
+@MapsId onetoone da ishlenir.
+MappedBy root terefde olur.
+Joincolumn komekci cedvel terefde olur.
+fetch, cascade bax.
+@ToString.Exclude bax.
+bidirectional vs unidirectional.
 
+one solution for n+1 is JPQL (not recommented) : @Query (---JOIN FETCH----)
+2nd with graph structure: @EntityGraph
+FETCH ve LOAD TYPE bax.
+
+
+Cascade - parent-a ne edirsense child-a da et. TYpe-lar enum-di.
+PERSIST is recommended.
