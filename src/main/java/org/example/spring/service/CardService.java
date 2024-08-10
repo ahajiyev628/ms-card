@@ -91,4 +91,8 @@ public class CardService {
         );
         return mapToPageableResponse(cardsPage);
     }
+
+    public void test() {
+        System.out.println("We send email");
+    }
 }

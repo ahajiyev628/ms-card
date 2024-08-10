@@ -33,6 +33,13 @@ dependencies {
 
     // Hibernate core dependency
     implementation("org.hibernate.orm:hibernate-core:6.5.2.Final")
+
+    // https://mvnrepository.com/artifact/net.javacrumbs.shedlock/shedlock-spring
+    implementation("net.javacrumbs.shedlock:shedlock-spring:5.13.0")
+    // https://mvnrepository.com/artifact/net.javacrumbs.shedlock/shedlock-provider-jdbc-template
+    implementation("net.javacrumbs.shedlock:shedlock-provider-jdbc-template:5.13.0")
+
+
 }
 
 tasks.test {
