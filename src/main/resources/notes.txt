@@ -119,3 +119,6 @@ FETCH ve LOAD TYPE bax.
 
 Cascade - parent-a ne edirsense child-a da et. TYpe-lar enum-di.
 PERSIST is recommended.
+
+
+Hikari

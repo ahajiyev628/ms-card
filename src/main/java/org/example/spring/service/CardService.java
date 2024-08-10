@@ -1,5 +1,6 @@
 package org.example.spring.service;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j; // Simple Logging Facade for Java
 import org.example.spring.dao.entity.CardEntity;
@@ -13,6 +14,7 @@ import org.example.spring.model.enums.CardStatus;
 import org.example.spring.model.request.SaveCardRequest;
 import org.example.spring.model.request.UpdateCardRequest;
 import org.example.spring.model.response.CardResponse;
+//import org.example.spring.model.response.PageableCardResponse;
 import org.example.spring.model.response.PageableCardResponse;
 import org.example.spring.service.specification.CardSpecification;
 import org.springframework.data.domain.PageRequest;
@@ -29,7 +31,7 @@ import static org.example.spring.mapper.CardMapper.*;
 @RequiredArgsConstructor
 public class CardService {
     private final CardRepository cardRepository;
-    private final AsyncCardService asyncCardService;
+//    private final AsyncCardService asyncCardService;
 
     public CardResponse getCardById(Long id) {
         log.info("ActionLog.getCardById.start id: {}", id);
@@ -47,7 +49,7 @@ public class CardService {
 
     public void saveCard(SaveCardRequest request) {
         // here any exception cases can be handled, that`s why we do not make this method async and instead, create a new class which contains async methods
-        asyncCardService.saveCard(request);
+        cardRepository.save(buildCardEntity(request));
     }
 
     public void updateCard(Long id,
@@ -67,11 +69,11 @@ public class CardService {
     private CardEntity fetchCardIfExist(Long id) {
         return cardRepository.findById(id)
                 .orElseThrow(
-                () -> {
-                    log.error("ActionLog.getCard.error id: {}", id);
-                    return new NotFoundException("CARD_NOT_FOUND");
-                }
-        );
+                        () -> {
+                            log.error("ActionLog.getCard.error id: {}", id);
+                            return new NotFoundException("CARD_NOT_FOUND");
+                        }
+                );
     }
 
     /*
@@ -92,6 +94,7 @@ public class CardService {
         return mapToPageableResponse(cardsPage);
     }
 
+    // Used to test scheduling
     public void test() {
         System.out.println("We send email");
     }
