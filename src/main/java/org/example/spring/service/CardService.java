@@ -33,11 +33,12 @@ public class CardService {
     private final CardRepository cardRepository;
 //    private final AsyncCardService asyncCardService;
 
-    public CardResponse getCardById(Long id) {
+    public CardEntity getCardById(Long id) {
         log.info("ActionLog.getCardById.start id: {}", id);
         var card = fetchCardIfExist(id);
+        log.info("ActionLog.getCard: {}", card);
         log.info("ActionLog.getCardById.end id: {}", id);
-        return buildCardResponse(card);
+        return card;
     }
 
     public List<CardResponse> getAllCards() {

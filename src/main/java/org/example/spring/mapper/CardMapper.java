@@ -7,10 +7,12 @@ import org.example.spring.model.request.UpdateCardRequest;
 import org.example.spring.model.response.CardResponse;
 import org.example.spring.model.response.PageableCardResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class CardMapper {
     public static CardResponse buildCardResponse(CardEntity card) {
         return CardResponse.builder()
