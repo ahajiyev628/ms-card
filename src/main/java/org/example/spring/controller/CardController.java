@@ -21,19 +21,19 @@ import java.util.List;
 public class CardController {
     private final CardService cardService;
 
-//    @GetMapping("/{id}")
-//    public CardResponse getCardById(@PathVariable Long id) {
-//        // PathVariable annotation extracts values from the URL path and maps them to method parameters in a controller, allowing dynamic handling of variable parts in URLs.
-//        log.info("ActionLog.getCardById.start id: {}", id); // Different description for logs can be applied to differentiate them from service logs.
-//        var card = cardService.getCardById(id);
-//        log.info("ActionLog.getCardById.end id: {}", id);
-//        return card;
-//    }
-//
-//    @GetMapping("all")
-//    public List<CardResponse> getAllCards() {
-//        return cardService.getAllCards();
-//    }
+    @GetMapping("/{id}")
+    public CardResponse getCardById(@PathVariable Long id) {
+        // PathVariable annotation extracts values from the URL path and maps them to method parameters in a controller, allowing dynamic handling of variable parts in URLs.
+        log.info("ActionLog.getCardById.start id: {}", id); // Different description for logs can be applied to differentiate them from service logs.
+        var card = cardService.getCardById(id);
+        log.info("ActionLog.getCardById.end id: {}", id);
+        return card;
+    }
+
+    @GetMapping("all")
+    public List<CardResponse> getAllCards() {
+        return cardService.getAllCards();
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED) // if the method is void and creates a new record, we need to set CREATED
@@ -54,14 +54,14 @@ public class CardController {
         cardService.deleteCard(id);
     }
 
-//    @GetMapping("/pages")     // localhost:8989/v1/cards?page=0&count=3&cardHolder=Hajiyevvv
-//    public PageableCardResponse getCards(PageCriteria pageCriteria,
-//                                         CardCriteria cardCriteria //@RequestParam(required = false) String cardHolder .....etc
-//    ) {
-//        /*
-//        No need to write @RequestParam annotation before PageCriteria or CardCriteria.
-//        They will work the same as if @RequestParam was used, by default.
-//         */
-//        return cardService.getCards(pageCriteria, cardCriteria);
-//    }
+    @GetMapping("/pages")     // localhost:8989/v1/cards?page=0&count=3&cardHolder=Hajiyevvv
+    public PageableCardResponse getCards(PageCriteria pageCriteria,
+                                         CardCriteria cardCriteria //@RequestParam(required = false) String cardHolder .....etc
+    ) {
+        /*
+        No need to write @RequestParam annotation before PageCriteria or CardCriteria.
+        They will work the same as if @RequestParam was used, by default.
+         */
+        return cardService.getCards(pageCriteria, cardCriteria);
+    }
 }

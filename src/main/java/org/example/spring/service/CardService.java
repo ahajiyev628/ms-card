@@ -31,14 +31,13 @@ import static org.example.spring.mapper.CardMapper.*;
 @RequiredArgsConstructor
 public class CardService {
     private final CardRepository cardRepository;
-//    private final AsyncCardService asyncCardService;
+    private final AsyncCardService asyncCardService;
 
-    public CardEntity getCardById(Long id) {
+    public CardResponse getCardById(Long id) {
         log.info("ActionLog.getCardById.start id: {}", id);
         var card = fetchCardIfExist(id);
-        log.info("ActionLog.getCard: {}", card);
         log.info("ActionLog.getCardById.end id: {}", id);
-        return card;
+        return buildCardResponse(card);
     }
 
     public List<CardResponse> getAllCards() {
@@ -50,7 +49,7 @@ public class CardService {
 
     public void saveCard(SaveCardRequest request) {
         // here any exception cases can be handled, that`s why we do not make this method async and instead, create a new class which contains async methods
-        cardRepository.save(buildCardEntity(request));
+        asyncCardService.saveCard(request);
     }
 
     public void updateCard(Long id,

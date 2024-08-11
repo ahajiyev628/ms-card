@@ -12,16 +12,21 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableFeignClients
 @EnableAsync
-@RequiredArgsConstructor
-public class Main implements CommandLineRunner {
-    private final CardService cardService;
-
+public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
-
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println(cardService.getCardById(6L));
-    }
 }
+
+//public class Main implements CommandLineRunner {
+//    private final CardService cardService;
+//
+//    public static void main(String[] args) {
+//        SpringApplication.run(Main.class, args);
+//    }
+//
+//    @Override
+//    public void run(String... args) throws Exception {
+//        System.out.println(cardService.getCardById(6L));
+//    }
+//}
