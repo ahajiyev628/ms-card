@@ -17,7 +17,7 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 }
-
+//@RequiredArgsConstructor
 //public class Main implements CommandLineRunner {
 //    private final CardService cardService;
 //
