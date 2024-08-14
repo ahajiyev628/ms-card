@@ -38,8 +38,9 @@ dependencies {
     implementation("net.javacrumbs.shedlock:shedlock-spring:5.13.0")
     implementation("net.javacrumbs.shedlock:shedlock-provider-jdbc-template:5.13.0")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    implementation("org.springframework.boot:spring-boot-starter-web:3.3.2")
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+    implementation("org.springframework.boot:spring-boot-starter-aop:3.2.0")
+
 }
 
 tasks.withType<JavaCompile> {

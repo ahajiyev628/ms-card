@@ -21,12 +21,16 @@ public class ElapsedTimeLogger {
     public void elapsedTimePc() {}
 
     @SneakyThrows
-    @Around(value = "elapsedTimePc()")  // Elapsed time:1
-    public void elapsedTimeLogger(ProceedingJoinPoint jp) {
+    @Around(value = "elapsedTimePc()")  // @Around allows to perform actions both before and after the method invocation
+    public Object elapsedTimeLogger(ProceedingJoinPoint jp) throws Throwable {
         long startDate = System.currentTimeMillis();
-        jp.proceed();
+        Object result = jp.proceed();
         long endDate = System.currentTimeMillis();
         log.info("Elapsed time:{}", endDate - startDate);
+        return result;
+        /* It’s important to return this result because failing to do so will prevent
+           the original method’s result from being returned to the caller.
+           Otherwise, GET request will not return any result set. */
     }
 
     @Before(value = "elapsedTimePc()")  // All method args:PageCriteria(page=0, count=5)
