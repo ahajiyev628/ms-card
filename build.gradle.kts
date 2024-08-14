@@ -41,6 +41,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
     implementation("org.springframework.boot:spring-boot-starter-aop:3.2.0")
 
+    // Jackson dependencies
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+
 }
 
 tasks.withType<JavaCompile> {

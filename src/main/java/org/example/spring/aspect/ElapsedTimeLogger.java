@@ -1,4 +1,4 @@
-package org.example.spring.aop;
+package org.example.spring.aspect;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
