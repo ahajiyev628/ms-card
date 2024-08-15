@@ -1,9 +1,5 @@
 package org.example.spring;
 
-import lombok.RequiredArgsConstructor;
-import org.example.spring.dao.repository.CardRepository;
-import org.example.spring.service.CardService;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;

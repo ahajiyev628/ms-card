@@ -5,7 +5,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.example.spring.Logger.CardLogger;
+import org.example.spring.logger.CardLogger;
 import org.example.spring.annotation.LogIgnore;
 import org.example.spring.mapper.ObjectMapperFactory;
 import org.slf4j.Logger;

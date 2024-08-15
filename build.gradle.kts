@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("groovy")
 }
 
 group = "org.example"
@@ -43,6 +44,14 @@ dependencies {
 
     // Jackson dependencies
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+
+    // https://mvnrepository.com/artifact/org.apache.groovy/groovy
+    implementation("org.apache.groovy:groovy:4.0.22")
+    // https://mvnrepository.com/artifact/org.spockframework/spock-spring
+    testImplementation("org.spockframework:spock-spring:2.4-M4-groovy-4.0")
+    // https://mvnrepository.com/artifact/io.github.benas/random-beans
+    implementation("io.github.benas:random-beans:3.9.0")
+
 
 }
 
