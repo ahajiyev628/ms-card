@@ -1,5 +1,6 @@
 package org.example.spring.aspect;
 
+import lombok.AllArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,17 +9,15 @@ import org.example.spring.Logger.CardLogger;
 import org.example.spring.annotation.LogIgnore;
 import org.example.spring.mapper.ObjectMapperFactory;
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Parameter;
 
 @Aspect
 @Component
+@AllArgsConstructor
 public class LoggingAspect {
-
-    @Autowired
-    private ObjectMapperFactory objectMapperFactory; // Inject ObjectMapperFactory
+    private final ObjectMapperFactory objectMapperFactory; // Inject ObjectMapperFactory
 
     @Around(value = "within(@org.example.spring.annotation.Log *)")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
