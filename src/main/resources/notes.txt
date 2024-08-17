@@ -122,3 +122,15 @@ PERSIST is recommended.
 
 
 Hikari
+
+
+Hibarnate ishleme prinsippi (session), caching, cache levels
+1L caching - eyni sessiya icerisinde bir query bir nece defe istifade edilirse, 1ci defeden sonrakilari artiq cache-den alir. (defaullt olaraq enableddi)
+2L (qosmaq ucun istifade olunan lib-ler: ehcache / caffeine)
+2L - eyni region altinda olan butun sessionlarin query-leri cache-lenir
+(SessionFactory)
+
+
+Application-un bir neche instance-i ishlese caching problem yaradir.
+
+
