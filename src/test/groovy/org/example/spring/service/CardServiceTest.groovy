@@ -4,7 +4,8 @@ import io.github.benas.randombeans.EnhancedRandomBuilder;
 import io.github.benas.randombeans.api.EnhancedRandom
 import org.example.spring.dao.entity.CardEntity;
 import org.example.spring.dao.repository.CardRepository
-import org.example.spring.exception.NotFoundException;
+import org.example.spring.exception.NotFoundException
+import org.example.spring.model.enums.CardStatus;
 import spock.lang.Specification;
 
 class CardServiceTest extends Specification {
@@ -58,5 +59,34 @@ class CardServiceTest extends Specification {
         e.message == "CARD_NOT_FOUND"
 
         // thrown(NotFoundException)   // tests if exception is thrown in fail case
+    }
+
+    def "TestDeleteCard success"() {
+        given:
+        def id = random.nextLong()
+        def card = random.nextObject(CardEntity)
+
+        when:
+        cardService.deleteCard(id)
+
+        then:
+        1 * cardRepository.findById(id) >> Optional.of(card)
+        1 * cardRepository.save(card)
+        card.status == CardStatus.BLOCKED
+    }
+
+    def "TestDeleteCard error when card not found"() {
+        given:
+        def id = random.nextLong()
+
+        when:
+        cardService.deleteCard(id)
+
+        then:
+        1 * cardRepository.findById(id) >> Optional.empty()
+        0 * cardRepository.save()   // test in case if no entity found, it should not call save method
+
+        NotFoundException e = thrown()
+        e.message == "CARD_NOT_FOUND"
     }
 }
