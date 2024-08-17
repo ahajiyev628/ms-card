@@ -50,6 +50,10 @@ class CardControllerTest extends Specification {
         when:
         def result = mockMvc.perform(
                 get(url)    // we are testing the method which use GET request
+                // we may have additional values to check such as @RequestHeader, @RequestParam.
+                // in such cases, we will add them here to check their values like get(url).header(...).param(...)
+                // if any of those additional fields is in other type rather than String, we need to convert their values to String while testing since the url is originally accepted as string
+                // .param("name", 1.toString())
         ).andReturn()
 
         then:
@@ -66,12 +70,13 @@ class CardControllerTest extends Specification {
         given:
         def url = "/v1/cards"
         def dto = new SaveCardRequest("1", LocalDate.of(2020,1,1), "2", "3")
+        // No need to give date as Array format when POST method tested
         def requestBody = '''
                 {
                     "pan": "1",
                     "expireDate": "2020-01-01",
                     "cvv": "2",
-                    "cardHolder": "3"
+                    "cardHolder": "3" 
                 }
         '''
 
