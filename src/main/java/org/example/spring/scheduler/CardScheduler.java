@@ -14,7 +14,7 @@ public class CardScheduler {
     // fixed time can be set for fixedDelayString using cron
     @Scheduled(fixedDelayString = "PT1M") // every 1 minute
     @SchedulerLock(name = "test", lockAtLeastFor = "PT1M", lockAtMostFor = "PT5M")
-    public void test() {
+    public void cardSchedule() {
         // The scheduler should not contain any business logic,]
         // Instead, it should call the method from Service which contains the business logic, and schedule that logic
         cardService.test();
