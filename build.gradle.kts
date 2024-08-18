@@ -52,7 +52,8 @@ dependencies {
     // https://mvnrepository.com/artifact/io.github.benas/random-beans
     implementation("io.github.benas:random-beans:3.9.0")
 
-
+    // redis
+    implementation("org.redisson:redisson:3.20.0")
 }
 
 tasks.withType<JavaCompile> {

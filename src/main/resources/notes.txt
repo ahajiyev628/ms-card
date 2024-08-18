@@ -130,7 +130,8 @@ Hibarnate ishleme prinsippi (session), caching, cache levels
 2L - eyni region altinda olan butun sessionlarin query-leri cache-lenir
 (SessionFactory)
 
-
+Hibernate Cache levels ve Local Cache oxu.
 Application-un bir neche instance-i ishlese caching problem yaradir.
 
 
+Redis - NoSQL database (key-value)
