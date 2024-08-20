@@ -54,6 +54,9 @@ dependencies {
 
     // redis
     implementation("org.redisson:redisson:3.20.0")
+
+    // rabbitmq
+    implementation("org.springframework.boot:spring-boot-starter-amqp:3.2.0")
 }
 
 tasks.withType<JavaCompile> {
