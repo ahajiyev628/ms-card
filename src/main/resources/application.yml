@@ -43,3 +43,7 @@ rabbitmq:
   queue:
     card: CARD_Q
     card-dlq: CARD_DLQ
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

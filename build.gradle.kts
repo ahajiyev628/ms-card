@@ -57,6 +57,10 @@ dependencies {
 
     // rabbitmq
     implementation("org.springframework.boot:spring-boot-starter-amqp:3.2.0")
+
+    // swagger
+//    implementation("org.springdoc:springdoc-openapi-ui:1.8.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
 }
 
 tasks.withType<JavaCompile> {
