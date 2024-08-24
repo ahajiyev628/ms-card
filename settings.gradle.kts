@@ -1,2 +1,2 @@
-rootProject.name = "SpringDataPractice"
+rootProject.name = "ms-card"
 
