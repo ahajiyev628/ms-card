@@ -76,5 +76,5 @@ tasks.test {
 }
 
 springBoot {
-    mainClass.set("org/example/spring/Main") // main class
+    mainClass.set("org/example/spring/Main")
 }
