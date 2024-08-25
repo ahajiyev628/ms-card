@@ -64,7 +64,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
 
     // Spring Security
-    implementation("org.springframework.boot:spring-boot-starter-security:3.2.0")
+//    implementation("org.springframework.boot:spring-boot-starter-security:3.2.0")
 }
 
 tasks.withType<JavaCompile> {
@@ -76,5 +76,5 @@ tasks.test {
 }
 
 springBoot {
-    mainClass.set("org/example/spring/Main")
+    mainClass.set("org.example.spring.Main")
 }
