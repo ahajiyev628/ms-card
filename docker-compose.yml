@@ -1,0 +1,51 @@
+version: '3.8'  # Docker Compose file format version
+
+services:
+  card-service:  # Microservice application
+    build:
+      context: .  # Directory containing Dockerfile
+      dockerfile: Dockerfile  # Dockerfile to build the image
+    ports:
+      - "8989:8989"  # Map host port 8989 to container port 8989
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/springdata  # Database connection URL
+      SPRING_DATASOURCE_USERNAME: postgres  # Database username
+      SPRING_DATASOURCE_PASSWORD: 1111  # Database password
+      SPRING_RABBITMQ_HOST: rabbitmq  # RabbitMQ service hostname
+      SPRING_RABBITMQ_PORT: 5672  # RabbitMQ service port
+      SPRING_REDIS_SERVER_URLS: redis://redis:6379  # Redis server URL
+    depends_on:
+      - db  # Dependency on db service
+      - rabbitmq  # Dependency on rabbitmq service
+      - redis  # Dependency on redis service
+
+  db:  # PostgreSQL database service
+    image: postgres:13  # PostgreSQL version 13 image
+    environment:
+      POSTGRES_DB: springdata  # Database name
+      POSTGRES_USER: postgres  # Database user
+      POSTGRES_PASSWORD: 1111  # Database password
+    ports:
+      - "15432:5432"  # Map host port 15432 to container port 5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data  # Persistent storage for PostgreSQL data
+
+  rabbitmq:  # RabbitMQ message broker service
+    image: rabbitmq:3-management  # RabbitMQ image with management plugin
+    ports:
+      - "5672:5672"  # Map host port 5672 to container port 5672
+      - "15672:15672"  # Map host port 15672 to container port 15672 (Management console)
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq  # Persistent storage for RabbitMQ data
+
+  redis:  # Redis caching service
+    image: redis:latest  # Latest Redis image
+    ports:
+      - "6379:6379"  # Map host port 6379 to container port 6379
+    volumes:
+      - redis-data:/data  # Persistent storage for Redis data
+
+volumes:
+  postgres-data:  # Volume for PostgreSQL data
+  rabbitmq-data:  # Volume for RabbitMQ data
+  redis-data:  # Volume for Redis data

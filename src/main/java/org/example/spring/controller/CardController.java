@@ -62,10 +62,8 @@ public class CardController {
     public PageableCardResponse getCards(PageCriteria pageCriteria,
                                          CardCriteria cardCriteria //@RequestParam(required = false) String cardHolder .....etc
     ) {
-        /*
-        No need to write @RequestParam annotation before PageCriteria or CardCriteria.
-        They will work the same as if @RequestParam was used, by default.
-         */
+        /* No need to write @RequestParam annotation before PageCriteria or CardCriteria.
+        They will work the same as if @RequestParam was used, by default */
         return cardService.getCards(pageCriteria, cardCriteria);
     }
 }

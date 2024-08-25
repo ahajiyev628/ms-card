@@ -1,6 +1,8 @@
 plugins {
+    id("org.springframework.boot") version "3.2.0"
     id("java")
     id("groovy")
+    id("application")
 }
 
 group = "org.example"
@@ -39,28 +41,30 @@ dependencies {
     implementation("net.javacrumbs.shedlock:shedlock-spring:5.13.0")
     implementation("net.javacrumbs.shedlock:shedlock-provider-jdbc-template:5.13.0")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+    // Spring AOP
     implementation("org.springframework.boot:spring-boot-starter-aop:3.2.0")
 
     // Jackson dependencies
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.0")
 
-    // https://mvnrepository.com/artifact/org.apache.groovy/groovy
+    // Groovy and Spock
     implementation("org.apache.groovy:groovy:4.0.22")
-    // https://mvnrepository.com/artifact/org.spockframework/spock-spring
     testImplementation("org.spockframework:spock-spring:2.4-M4-groovy-4.0")
-    // https://mvnrepository.com/artifact/io.github.benas/random-beans
+
+    // Random Beans
     implementation("io.github.benas:random-beans:3.9.0")
 
-    // redis
+    // Redis
     implementation("org.redisson:redisson:3.20.0")
 
-    // rabbitmq
+    // RabbitMQ
     implementation("org.springframework.boot:spring-boot-starter-amqp:3.2.0")
 
-    // swagger
-//    implementation("org.springdoc:springdoc-openapi-ui:1.8.0")
+    // Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
+
+    // Spring Security
+    implementation("org.springframework.boot:spring-boot-starter-security:3.2.0")
 }
 
 tasks.withType<JavaCompile> {
@@ -69,4 +73,8 @@ tasks.withType<JavaCompile> {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+springBoot {
+    mainClass.set("org/example/spring/Main") // main class
 }
